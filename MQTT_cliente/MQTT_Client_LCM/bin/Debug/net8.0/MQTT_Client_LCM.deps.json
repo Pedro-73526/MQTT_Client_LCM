@@ -1,0 +1,41 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "MQTT_Client_LCM/1.0.0": {
+        "dependencies": {
+          "MQTTnet": "4.3.6.1152"
+        },
+        "runtime": {
+          "MQTT_Client_LCM.dll": {}
+        }
+      },
+      "MQTTnet/4.3.6.1152": {
+        "runtime": {
+          "lib/net7.0/MQTTnet.dll": {
+            "assemblyVersion": "4.3.6.1152",
+            "fileVersion": "4.3.6.1152"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MQTT_Client_LCM/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MQTTnet/4.3.6.1152": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XBgqx60FIWiBqTiLNF40EIhENLrLDzE3I9ujzZ7343QCeAWTHP70fO0mN6LeElSfubzfRSugLpPnd0cZiccUOw==",
+      "path": "mqttnet/4.3.6.1152",
+      "hashPath": "mqttnet.4.3.6.1152.nupkg.sha512"
+    }
+  }
+}

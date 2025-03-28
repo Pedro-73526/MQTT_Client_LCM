@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "wylMFfiwaYc=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Pedro Guimarães\\Desktop\\UTAD\\Bolsa\\MQTT_Client_LCM\\MQTT_cliente\\MQTT_Client_LCM\\MQTT_Client_LCM.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Pedro Guimarães\\.nuget\\packages\\mqttnet\\4.3.6.1152\\mqttnet.4.3.6.1152.nupkg.sha512"
+  ],
+  "logs": []
+}
