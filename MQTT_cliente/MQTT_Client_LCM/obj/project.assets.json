@@ -60,32 +60,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Pedro Guimarães\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/home/amover2/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pedro Guimarães\\Desktop\\UTAD\\Bolsa\\MQTT_Client_LCM\\MQTT_cliente\\MQTT_Client_LCM\\MQTT_Client_LCM.csproj",
+      "projectUniqueName": "/home/amover2/Documents/MQTT_Client_LCM/MQTT_cliente/MQTT_Client_LCM/MQTT_Client_LCM.csproj",
       "projectName": "MQTT_Client_LCM",
-      "projectPath": "C:\\Users\\Pedro Guimarães\\Desktop\\UTAD\\Bolsa\\MQTT_Client_LCM\\MQTT_cliente\\MQTT_Client_LCM\\MQTT_Client_LCM.csproj",
-      "packagesPath": "C:\\Users\\Pedro Guimarães\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pedro Guimarães\\Desktop\\UTAD\\Bolsa\\MQTT_Client_LCM\\MQTT_cliente\\MQTT_Client_LCM\\obj\\",
+      "projectPath": "/home/amover2/Documents/MQTT_Client_LCM/MQTT_cliente/MQTT_Client_LCM/MQTT_Client_LCM.csproj",
+      "packagesPath": "/home/amover2/.nuget/packages/",
+      "outputPath": "/home/amover2/Documents/MQTT_Client_LCM/MQTT_cliente/MQTT_Client_LCM/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Pedro Guimarães\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/amover2/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -125,12 +117,26 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[8.0.16, 8.0.16]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.linux-x64",
+            "version": "[8.0.16, 8.0.16]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[8.0.16, 8.0.16]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.409/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

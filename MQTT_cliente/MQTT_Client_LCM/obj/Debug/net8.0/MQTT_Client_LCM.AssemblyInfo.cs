@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MQTT_Client_LCM")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+de0ca8f1a0a3616902f1a4ca9bc9744ab84ebb5c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+651762581791c8c17b1de13ad474d6a2041522f3")]
 [assembly: System.Reflection.AssemblyProductAttribute("MQTT_Client_LCM")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MQTT_Client_LCM")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

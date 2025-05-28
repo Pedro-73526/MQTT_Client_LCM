@@ -29,13 +29,13 @@ namespace MQTT_Client_LCM
         static async Task Main(string[] args)
         {
             var origemOptions = new MqttClientOptionsBuilder()
-                .WithTcpServer("172.20.0.201", 1884)
+                .WithTcpServer("172.20.0.203", 1884)
                 .WithProtocolVersion(MqttProtocolVersion.V311)
                 .Build();
 
             var destinoOptions = new MqttClientOptionsBuilder()
                 .WithTcpServer("172.20.0.202", 1884)
-                .WithClientId("MOTO999999999999")
+                .WithClientId("AJP1RB5SXLB123456")
                 .WithProtocolVersion(MqttProtocolVersion.V311)
                 .Build();
 
