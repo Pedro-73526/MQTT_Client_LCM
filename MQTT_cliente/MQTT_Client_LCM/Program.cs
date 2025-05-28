@@ -110,7 +110,8 @@ namespace MQTT_Client_LCM
                 return;
             }
 
-            if (cache.EstaCompleta)
+            // Enviar sempre que for battery ou kilometers
+            if (topicoOrigem == "moto/battery" || topicoOrigem == "moto/total_kilometers")
             {
                 var json = cache.ToJson();
 
@@ -124,16 +125,15 @@ namespace MQTT_Client_LCM
                 try
                 {
                     await clienteDestino.PublishAsync(mensagemDestino);
-                    Console.WriteLine($"📤 JSON publicado para 'mota/telemetria': {json}");
+                    Console.WriteLine($"📤 JSON publicado para 'motas/telemetria': {json}");
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine($"❌ Erro ao publicar para broker de destino: {ex.Message}");
                 }
-
-                cache = new TelemetriaCache(); // Limpar cache
             }
         }
+
     }
 
     class TelemetriaCache
