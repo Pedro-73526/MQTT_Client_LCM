@@ -17,6 +17,8 @@ namespace MQTT_Client_LCM
         static IMqttClient clienteDestino;
         static IMqttClient clienteOrigem;
         static TelemetriaCache cache = new TelemetriaCache();
+        static string vinRecebido = null;
+
 
         static readonly Dictionary<string, string> mapaTopicos = new Dictionary<string, string>
         {
@@ -33,20 +35,31 @@ namespace MQTT_Client_LCM
                 .WithProtocolVersion(MqttProtocolVersion.V311)
                 .Build();
 
+            var mqttFactory = new MqttFactory();
+            clienteOrigem = mqttFactory.CreateMqttClient();
+            clienteOrigem.ConnectedAsync += OnClienteOrigemLigadoAsync;
+            clienteOrigem.ApplicationMessageReceivedAsync += OnMensagemRecebidaAsync;
+
+            await clienteOrigem.ConnectAsync(origemOptions);
+
+            // Espera pelo VIN
+            Console.WriteLine("🔎 À espera do VIN...");
+            while (vinRecebido == null)
+            {
+                await Task.Delay(100);
+            }
+
+            // Conecta cliente de destino depois de receber o VIN
             var destinoOptions = new MqttClientOptionsBuilder()
                 .WithTcpServer("172.20.0.202", 1884)
-                .WithClientId("AJP1RB5SXLB123456")
+                .WithClientId(vinRecebido)
                 .WithProtocolVersion(MqttProtocolVersion.V311)
                 .Build();
 
-            var mqttFactory = new MqttFactory();
-            clienteOrigem = mqttFactory.CreateMqttClient();
             clienteDestino = mqttFactory.CreateMqttClient();
-
             await clienteDestino.ConnectAsync(destinoOptions);
-            clienteOrigem.ConnectedAsync += OnClienteOrigemLigadoAsync;
-            clienteOrigem.ApplicationMessageReceivedAsync += OnMensagemRecebidaAsync;
-            await clienteOrigem.ConnectAsync(origemOptions);
+
+            Console.WriteLine("🚀 Cliente de destino ligado com VIN!");
 
             Console.WriteLine("A escutar... Pressiona Enter para sair.");
             Console.ReadLine();
@@ -55,11 +68,12 @@ namespace MQTT_Client_LCM
             await clienteDestino.DisconnectAsync();
         }
 
+
         private static async Task OnClienteOrigemLigadoAsync(MqttClientConnectedEventArgs e)
         {
             Console.WriteLine("[Origem] Ligado com sucesso.");
 
-            foreach (var topico in mapaTopicos.Keys)
+            foreach (var topico in mapaTopicos.Keys.Append("moto/vin"))
             {
                 var filtro = new MqttTopicFilterBuilder()
                     .WithTopic(topico)
@@ -67,10 +81,10 @@ namespace MQTT_Client_LCM
                     .Build();
 
                 Console.WriteLine($"[Subscrevendo] {topico}");
-
                 await clienteOrigem.SubscribeAsync(filtro);
             }
         }
+
 
         private static async Task OnMensagemRecebidaAsync(MqttApplicationMessageReceivedEventArgs e)
         {
@@ -81,6 +95,14 @@ namespace MQTT_Client_LCM
 
             try
             {
+
+                if (e.ApplicationMessage.Topic == "moto/vin")
+                {
+                    vinRecebido = Encoding.UTF8.GetString(e.ApplicationMessage.PayloadSegment.ToArray()).Trim();
+                    Console.WriteLine($"✅ VIN recebido: {vinRecebido}");
+                    return;
+                }
+
                 switch (topicoOrigem)
                 {
                     case "moto/battery":
